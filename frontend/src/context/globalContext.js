@@ -15,7 +15,7 @@ export const GlobalProvider = ({children}) => {
 
     //calculate incomes
     const addIncome = async (income) => {
-        const response = await axios.post(`${BASE_URL}add-income`, income)
+            await axios.post(`${BASE_URL}add-income`, income)
             .catch((err) =>{
                 setError(err.response.data.message)
             })
@@ -29,7 +29,7 @@ export const GlobalProvider = ({children}) => {
     }
 
     const deleteIncome = async (id) => {
-        const res  = await axios.delete(`${BASE_URL}delete-income/${id}`)
+         await axios.delete(`${BASE_URL}delete-income/${id}`)
         getIncome()
     }
 
