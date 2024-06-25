@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react"
 import axios from 'axios'
 
 
-const BASE_URL = "http://localhost:3001/api/v1/";
+const BASE_URL = "https://expense-tracker-1-ej53.onrender.com/api/v1/";
 
 
 const GlobalContext = React.createContext()
@@ -45,7 +45,7 @@ export const GlobalProvider = ({children}) => {
 
     //calculate incomes
     const addExpense = async (income) => {
-        const response = await axios.post(`${BASE_URL}add-expense`, income)
+        await axios.post(`${BASE_URL}add-expense`, income)
             .catch((err) =>{
                 setError(err.response.data.message)
             })
@@ -59,7 +59,7 @@ export const GlobalProvider = ({children}) => {
     }
 
     const deleteExpense = async (id) => {
-        const res  = await axios.delete(`${BASE_URL}delete-expense/${id}`)
+        await axios.delete(`${BASE_URL}delete-expense/${id}`)
         getExpense()
     }
 
